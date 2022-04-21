@@ -7,25 +7,15 @@ module "eks" {
   vpc_id                      = module.vpc.vpc_id
   create_cloudwatch_log_group = false
 
-  self_managed_node_group_defaults = {
-    root_volume_type = "gp2"
-  }
+  eks_managed_node_groups = {
+    blue = {}
+    green = {
+      min_size     = 1
+      max_size     = 10
+      desired_size = 1
 
-  self_managed_node_groups = {
-    one = {
-      name                          = "worker-group-1"
-      instance_type                 = "t2.small"
-      additional_userdata           = "echo foo bar"
-      additional_security_group_ids = [aws_security_group.worker_group_mgmt_one.id]
-      asg_desired_capacity          = 2
-    },
-    two = {
-      name                          = "worker-group-2"
-      instance_type                 = "t2.medium"
-      additional_userdata           = "echo foo bar"
-      additional_security_group_ids = [aws_security_group.worker_group_mgmt_two.id]
-      asg_desired_capacity          = 1
-    },
+      instance_types = ["t3.medium"]
+    }
   }
 }
 

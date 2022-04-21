@@ -8,6 +8,7 @@ gcloud alpha container hub memberships generate-gateway-rbac  \
 --users="$5" \
 --project="$6" \
 --context="$2" \
+--kubeconfig="~/.kube/config" \
 --apply
 
 gcloud container hub memberships register "$1" \
