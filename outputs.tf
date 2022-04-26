@@ -27,3 +27,20 @@ output "cluster_name" {
 output "oidc_issuer_url" {
   value = module.eks.cluster_oidc_issuer_url
 }
+
+
+
+output "kubeconfig" {
+  sensitive = true
+  value = local.kubeconfig
+}
+
+output "aws_token" {
+  sensitive = true
+  value = data.aws_eks_cluster_auth.cluster.token
+}
+
+output "k8s_version" {
+  value = kubectl_server_version.current.version
+}
+
