@@ -35,11 +35,6 @@ output "kubeconfig" {
   value = local.kubeconfig
 }
 
-output "aws_token" {
-  sensitive = true
-  value = data.aws_eks_cluster_auth.cluster.token
-}
-
 output "k8s_version" {
   value = kubectl_server_version.current.version
 }
