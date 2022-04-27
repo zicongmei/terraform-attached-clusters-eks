@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x	
+set -xe
 aws eks update-kubeconfig --region "$4" --name "$7"
 
 gcloud alpha container hub memberships generate-gateway-rbac  \

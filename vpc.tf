@@ -10,7 +10,7 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  cluster_name = "zicong-education-eks-${random_string.suffix.result}"
+  cluster_name = "zicong-eks-${formatdate("YYYYMMDDhhmmss", timestamp())}"
 }
 
 resource "random_string" "suffix" {
