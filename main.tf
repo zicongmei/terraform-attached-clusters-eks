@@ -26,4 +26,5 @@ module "cli" {
 
   destroy_cmd_entrypoint = "${path.module}/scripts/unregister.sh"
   destroy_cmd_body       = "${local.membership_id} ${local.context} ${var.region} ${local.cluster_name}"
+
 }
