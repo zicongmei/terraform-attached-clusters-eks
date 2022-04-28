@@ -1,0 +1,38 @@
+admin_users = "zicong@google.com"
+cluster_endpoint = "https://CBE8D4857C69F79DF8BD85581158FE1B.yl4.us-west-2.eks.amazonaws.com"
+cluster_id = "zicong-eks-20220428171847"
+cluster_name = "zicong-eks-20220428171847"
+cluster_security_group_id = "sg-047f5320b48775fc0"
+k8s_ca = <<EOT
+-----BEGIN CERTIFICATE-----
+MIIC/jCCAeagAwIBAgIBADANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwprdWJl
+cm5ldGVzMB4XDTIyMDQyODE3MjUwNFoXDTMyMDQyNTE3MjUwNFowFTETMBEGA1UE
+AxMKa3ViZXJuZXRlczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANEg
+ZJ9FweibgYWhV8Sxbfk1WwR3l+6CcJU+BY4EEYuA9ufXbqyDh01yfHD3ba5I1i9u
+A9x4/98RAztJgSsSKaKszntEzapoJfX9RMKrwIuxTAAu2TawEd2husQ7VicfDtaC
+/H/UbBG8k2opQ2z0l/H3xURPR2jKTNHObBk3L1Qo+HbwcAk8IayqMHYwcs7VUizv
+wo5tAguYDfzEnCsHCZTuIUgVj4wcgWNvpAQNTCQOCwng1p3BZVFAiS/CzcWr4WjU
+eB5yxvlttyDJhGzCQmcWDWjYQfDlUEd+ohV2NgoQsyVxyE1Aeo87kd8bo1zMQmRX
+XFKAZf8OHjbJPPshhJECAwEAAaNZMFcwDgYDVR0PAQH/BAQDAgKkMA8GA1UdEwEB
+/wQFMAMBAf8wHQYDVR0OBBYEFPqM1GV02c+9AoJw/ih19m1J7p32MBUGA1UdEQQO
+MAyCCmt1YmVybmV0ZXMwDQYJKoZIhvcNAQELBQADggEBAJfbeHo/rM0GnGA+7YmX
+vhuWCkizwOBEks7LDsV2wyuwSfQ2cIp6tOTAIQJ3ckniSw2CBe+yQB0QN6k1PgKz
+hzrNbXFrG8FaYKDzkkOuZ2Rj1NMua1fYq9kZEwzEOW8MwPimYrj23kGcrZuoNVnN
+jrjBTaUTlFLGl20wGiclap3uMgqd2AiBcKMI6taWnavt3PvF4wgKZfTE1lu9TGMX
+sBBR0yOkTI6XZ/y6lri4579mlJUxVcliFlo8fbYStucL91k//3YOXB9hn/ZZpTnZ
+xXg1J4MlUM5wbmCfJhAHKbfxhsjKxMRpv15qIY1lFIt/ShY+VQKLmZRfccm1+dNh
+8Wk=
+-----END CERTIFICATE-----
+
+EOT
+k8s_token = "k8s-aws-v1.aHR0cHM6Ly9zdHMuYW1hem9uYXdzLmNvbS8_QWN0aW9uPUdldENhbGxlcklkZW50aXR5JlZlcnNpb249MjAxMS0wNi0xNSZYLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFYTUVMMlNDTkVSVUVOR1lCJTJGMjAyMjA0MjglMkZ1cy1lYXN0LTElMkZzdHMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDIyMDQyOFQxNzI5NDlaJlgtQW16LUV4cGlyZXM9MCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QlM0J4LWs4cy1hd3MtaWQmWC1BbXotU2lnbmF0dXJlPTI5ZmQ5NDY4ZDJhZmNhMzJjMTEwNGE1MjM4Zjk1ZWVlNjVjNWNiN2E0YzExYjUwODE2ODA0NDM0ZjhiM2ZmYjY"
+
+kubeconfig = "aws eks update-kubeconfig --region us-west-2 --name zicong-eks-20220428171847"
+oidc_issuer_url = "https://oidc.eks.us-west-2.amazonaws.com/id/CBE8D4857C69F79DF8BD85581158FE1B"
+project_id = "polar-lead-272319"
+region = "us-west-2"
+
+sync_repo= "https://github.com/zicongmei/csp-config-management.git"
+sync_branch= "1.0.0"
+secret_type= "none"
+policy_dir= "hello-namespace/config-root"

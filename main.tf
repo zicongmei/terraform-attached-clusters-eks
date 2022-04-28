@@ -2,8 +2,33 @@ data "aws_caller_identity" "current" {}
 
 locals {
   account_id    = data.aws_caller_identity.current.account_id
-  context       = "arn:aws:eks:${var.region}:${local.account_id}:cluster/${local.cluster_name}"
-  membership_id = lower(local.cluster_name)
+  context       = "arn:aws:eks:${var.region}:${local.account_id}:cluster/${var.cluster_name}"
+  membership_id = lower(var.cluster_name)
+}
+
+variable "cluster_name" {
+  type = string
+}
+
+variable "region" {
+  default     = "us-west-2"
+  description = "AWS region"
+}
+
+variable "cluster_endpoint" {
+  type = string
+}
+
+variable "k8s_token" {
+  type = string
+}
+
+variable "k8s_ca" {
+  type = string
+}
+
+variable "oidc_issuer_url" {
+  type = string
 }
 
 variable "project_id" {
@@ -14,17 +39,7 @@ variable "admin_users" {
   type = string
 }
 
-module "cli" {
-  source  = "terraform-google-modules/gcloud/google"
-  version = "~> 2.0"
-
-  platform              = "linux"
-  additional_components = ["kubectl", "beta"]
-
-  create_cmd_entrypoint = "${path.module}/scripts/register.sh"
-  create_cmd_body       = "${local.membership_id} ${local.context} ${module.eks.cluster_oidc_issuer_url} ${var.region} ${var.admin_users} ${var.project_id} ${local.cluster_name}"
-
-  destroy_cmd_entrypoint = "${path.module}/scripts/unregister.sh"
-  destroy_cmd_body       = "${local.membership_id} ${local.context} ${var.region} ${local.cluster_name}"
-
-}
+variable "sync_repo" {}
+variable "sync_branch" {}
+variable "policy_dir" {}
+variable "secret_type" {}
