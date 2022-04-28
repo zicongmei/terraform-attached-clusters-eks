@@ -1,5 +1,17 @@
-# Learn Terraform - Provision an EKS Cluster
+# Demo of using terraform to attach the cluster to GKE hub
 
-This repo is a companion repo to the [Provision an EKS Cluster learn guide](https://learn.hashicorp.com/terraform/kubernetes/provision-eks-cluster), containing
-Terraform configuration files to provision an EKS cluster on AWS.# terraform-attach-clusters-eks
-# terraform-attach-clusters-eks
+# Deploy a EKS cluster
+
+```bash
+pushd deploy_eks
+terrafrom init
+terrafrom apply
+pushd
+```
+
+# Attach the GKE hub and install ACM
+
+```bash
+terrafrom init
+terrafrom apply
+```
