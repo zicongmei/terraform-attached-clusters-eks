@@ -2,6 +2,12 @@
 set -xe
 aws eks update-kubeconfig --region "$4" --name "$7"
 
+gcloud container hub memberships register "$1" \
+  --context="$2" \
+  --enable-workload-identity \
+  --public-issuer-url="$3"
+
+
 gcloud alpha container hub memberships generate-gateway-rbac  \
 --membership="$1" \
 --role=clusterrole/cluster-admin \
@@ -11,7 +17,3 @@ gcloud alpha container hub memberships generate-gateway-rbac  \
 --kubeconfig="~/.kube/config" \
 --apply
 
-gcloud container hub memberships register "$1" \
-  --context="$2" \
-  --enable-workload-identity \
-  --public-issuer-url="$3"

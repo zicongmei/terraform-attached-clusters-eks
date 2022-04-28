@@ -1,7 +1,4 @@
 
-
-
-
 resource "kubernetes_namespace" "config-management-system" {
   metadata {
     name = "config-management-system"
@@ -9,17 +6,7 @@ resource "kubernetes_namespace" "config-management-system" {
   depends_on = [module.cli]
 }
 
-resource "kubernetes_secret" "git-creds" {
-  metadata {
-    name      = "git-creds"
-    namespace = kubernetes_namespace.config-management-system.metadata[0].name
-  }
 
-  data = {
-    ssh = "${file("~/.ssh/id_rsa.pub")}"
-  }
-
-}
 provider "google-beta" {
   project     = var.project_id
   region      = "us-central1"
@@ -47,4 +34,5 @@ resource "google_gke_hub_feature_membership" "feature_member" {
     }
   }
   provider = google-beta
+  depends_on = [kubernetes_namespace.config-management-system]
 }
