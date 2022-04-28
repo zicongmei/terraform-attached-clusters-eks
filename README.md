@@ -1,5 +1,19 @@
-# Learn Terraform - Provision an EKS Cluster
+# Provision an EKS cluster and register with Fleet
 
-This repo is a companion repo to the [Provision an EKS Cluster learn guide](https://learn.hashicorp.com/terraform/kubernetes/provision-eks-cluster), containing
-Terraform configuration files to provision an EKS cluster on AWS.# terraform-attach-clusters-eks
-# terraform-attach-clusters-eks
+## Usage
+
+1. Specify a Google Cloud project and an admin users.
+
+```
+cat > terraform.tfvars << EOF
+project_id  = "$(gcloud config get-value project)"
+admin_users = "$(gcloud config get-value account)"
+EOF
+```
+
+2. Init and apply the Terraform config.
+
+```
+terraform init
+terraform apply
+```

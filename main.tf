@@ -37,7 +37,7 @@ module "gateway-rbac" {
   additional_components = ["kubectl", "beta"]
 
   create_cmd_entrypoint = "${path.module}/scripts/generate-gateway-rbac.sh"
-  create_cmd_body       = "${var.region} ${local.cluster_name} ${var.admin_users} ${var.project_id} ${local.context} --apply "
+  create_cmd_body       = "${var.region} ${local.cluster_name} ${var.admin_users} ${var.project_id} ${local.context} --apply"
 
   destroy_cmd_entrypoint = "${path.module}/scripts/generate-gateway-rbac.sh"
   destroy_cmd_body       = "${var.region} ${local.cluster_name} ${var.admin_users} ${var.project_id} ${local.context} --revoke"
