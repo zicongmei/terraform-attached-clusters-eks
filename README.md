@@ -12,6 +12,7 @@ pushd
 # Attach the GKE hub and install ACM
 
 ```bash
+cd <root-dir-of-this-repo>
 terrafrom init
 terrafrom apply
 ```
